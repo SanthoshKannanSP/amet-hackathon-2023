@@ -8,12 +8,16 @@
 </head>
 <body>
     {% for message in messages %}
-    <p>{{ message.text }}<p>
+    {{ message.by }}:{{ message.text }}
+    <br>
+    <br>
     <br>
     {% endfor %}
+    {% if not final %}
     <form action="/" method="post">
-        <textarea name="user_input" id="user_input" cols="30" rows="10"></textarea>
+        <textarea name="user_input" id="user_input" cols="30" rows="2"></textarea>
         <button type="submit">Enter</button>
     </form>
+    {% endif %}
 </body>
 </html>

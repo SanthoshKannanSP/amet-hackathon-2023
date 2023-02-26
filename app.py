@@ -23,6 +23,7 @@ def index():
         global flag
         global messages
         global current_symptom
+        final = False
         if flag==0:
             details = {
                 "type": "first",
@@ -52,14 +53,18 @@ def index():
             messages.append({"by":"bot","text":"Are you experiencing %s"%(resp["value"])})
             current_symptom = resp["value"]
         else:
-            messages.append({"by":"bot","text":"You might have %s"%(resp["value"])})
+            df = pd.read_csv("./dataset/symptom_Description.csv")
+            desc = df[df["Disease"]==resp["value"]]["Description"].to_list()[0]
+            
+            messages.append({"by":"bot","text":"You might have %s. %s"%(resp["value"],desc)})
+            final=True
         
-        return render_template("index.html",messages=messages)
+        return render_template("index.html",messages=messages,final=final)
         
         
     flag = 0
     messages = []
-    return render_template("index.html")
+    return render_template("index.html", final=False)
 
 @app.route('/get/next/symptom',methods=["POST"])
 def next_symptom():

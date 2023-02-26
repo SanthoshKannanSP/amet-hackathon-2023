@@ -1,0 +1,106 @@
+.chat-input-textarea {
+    background-color: #40414f;
+    width: 100%;
+    border-radius:5px;
+    border: None;
+    outline: None;
+    box-shadow: 0 0 8px 0 rgba(0,0,0,0.25);
+    padding: 12px;
+    color: white;
+    font-size: 1.5em;
+
+}
+
+body {
+    text-align: center;
+    display: flex;
+    background-color: #282e34;
+    color: white;
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+}
+
+.chat-input-holder {
+    padding: 24px;
+    width: 96%;
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+}
+
+.chat-log {
+    text-align: left;
+    width: 96%;
+}
+
+.chat-message {
+    
+}
+
+.avatar {
+    background: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.avatar-gpt {
+    background: #0da37f;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.message {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.chat-message-gpt {
+    background-color: #444654;
+}
+
+.chat-message-center {
+    justify-self: left;
+    margin: 5px;
+    padding: 12px;
+    padding-left: 24px;
+    padding-right: 24px;
+    display: flex;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.refresh {
+    justify-self: left;
+    margin: 5px;
+    padding: 12px;
+    padding-left: 24px;
+    padding-right: 24px;
+    display: flex;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.refresh-btn {
+    background-color: #55a059; /* Green background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 12px 24px; /* Padding */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make button inline */
+    font-size: 16px; /* Font size */
+    margin: 4px 2px; /* Margin */
+    cursor: pointer; /* Add cursor on hover */
+  }
+
+  .refresh-btn:hover {
+    background-color: #3e8e41; /* Dark green background on hover */
+  }
+  
+  /* Font Awesome icon */
+  .refresh-btn i {
+    margin-right: 5px; /* Add spacing between icon and text */
+  }

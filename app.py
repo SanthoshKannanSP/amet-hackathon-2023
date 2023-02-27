@@ -34,7 +34,10 @@ def index():
             resp = requests.post(url="http://0.0.0.0:8040/get/next/symptom",data=json.dumps(details),headers={'content-type': 'application/json'})
             messages.append({"by":"user","text":user_input})
             current_symptom = user_input
-            resp = json.loads(resp.text)
+            try:
+                resp = json.loads(resp.text)
+            except:
+                return redirect("http://0.0.0.0:8040")
             
 
         else:

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-qsjfKv0naxGJzMuX8sZwnKjvDTCYbYD1LVe8+ndFLFSFRj0SS0TjrTJsb9HcIj+awvGJ1Q2RBSR0jx75+fG1eA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
+    
+</head>
+<body>
+    <div class="chat-log">
+    {% for message in messages %}
+    {% if message.by=="user" %}
+    <div class="chat-message">
+        <div class="chat-message-center">
+    <div class="avatar">
+    </div>
+    <div class="message">
+        {{ message.text }}
+    </div>
+    </div>
+    </div>
+    {% else %}
+    <div class="chat-message-gpt">
+        <div class="chat-message-center">
+    <div class="avatar-gpt">
+    </div>
+    <div class="message">
+        {{ message.text }}
+    </div>
+    </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    {% if not final %}
+    </div>
+    <div class="chat-input-holder">
+    <form action="/" method="post" onsubmit="handleSubmit()">
+        <input name="user_input" id="user_input" rows=1 class="chat-input-textarea"></input>
+        <button type="submit" hidden>Enter</button>
+    </form>
+    {% else %}
+    <div class="refresh">
+        <a href="http://127.0.0.1:8040/"><button class="refresh-btn">
+        <i  class="fas fa-sync-alt">Refresh Page</i>
+    </button>
+    </a>
+    </div>
+    {% endif %}
+    </div>
+
+    <script>
+        function handleSubmit(e){
+            e.preventDefault();
+        }
+    </script>
+</body>
+</html>
